@@ -13,12 +13,9 @@ var config = {
 	}],
 	tokens: [],
 	users: [{
-		id: '1',
+		id: '123',
 		username: 'admin',
-		password: 'admin',
-		roles: [
-			"ADMIN"
-		]
+		password: 'admin'
 	}]
 };
 

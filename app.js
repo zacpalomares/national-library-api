@@ -11,10 +11,13 @@ var users = require('./routes/users'),
 app = express();
 var server = http.createServer(app);
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // OAuth2 config [Start]
 app.oauth = oauthserver({
 	model: require('./model.js'),
-	grants: ['password', 'refresh_token'],
+	grants: ['password', 'client_credentials'],
 	debug: true
 });
 
@@ -25,12 +28,9 @@ app.use('/user*', app.oauth.authorise(), users);
 app.use('/book*', app.oauth.authorise(), books);
 app.use('/author*', app.oauth.authorise(), authors);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 // Error handling as JSON
 app.use(function (err, req, res, next) {
-    res.status(err.statusCode).json(err);
+    res.status(err.statusCode || 500).json(err);
 });
 
 // Set app port listener
