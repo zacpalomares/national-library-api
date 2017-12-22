@@ -1,0 +1,82 @@
+{
+	"id": "a755b551-cf44-0b97-38a4-3c66fed1fde2",
+	"name": "library",
+	"description": "",
+	"order": [
+		"01fa7788-14e7-2281-3fb1-6ff774ab8607",
+		"48158855-8fac-52fb-9a11-e5a230b74d6f"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1513913384845,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "01fa7788-14e7-2281-3fb1-6ff774ab8607",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic Y2xpZW50LWlkOmNsaWVudC1zZWNyZXQ=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic Y2xpZW50LWlkOmNsaWVudC1zZWNyZXQ=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/oauth/token",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a755b551-cf44-0b97-38a4-3c66fed1fde2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Access token admin",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1513913387130,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "grant_type=password&username=admin&password=admin"
+		},
+		{
+			"id": "48158855-8fac-52fb-9a11-e5a230b74d6f",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8090/user/?access_token=f05ea79c5922d7d50a9a59affcc05a3124aa814d",
+			"queryParams": [
+				{
+					"key": "access_token",
+					"value": "f05ea79c5922d7d50a9a59affcc05a3124aa814d",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1513914011845,
+			"name": "Users with access_token",
+			"description": "",
+			"collectionId": "a755b551-cf44-0b97-38a4-3c66fed1fde2",
+			"responses": []
+		}
+	]
+}
