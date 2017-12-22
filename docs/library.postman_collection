@@ -1,10 +1,12 @@
 {
-	"id": "a755b551-cf44-0b97-38a4-3c66fed1fde2",
+	"id": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
 	"name": "library",
 	"description": "",
 	"order": [
-		"01fa7788-14e7-2281-3fb1-6ff774ab8607",
-		"48158855-8fac-52fb-9a11-e5a230b74d6f"
+		"a1974d26-eb36-cc88-792e-ead1b8936f66",
+		"b0187307-206c-030d-c4ae-a391023bf07c",
+		"1e763a27-8813-9878-384f-38cc3842aa71",
+		"0951254a-639f-c412-2df6-b59a5c2cca3e"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -13,7 +15,74 @@
 	"public": false,
 	"requests": [
 		{
-			"id": "01fa7788-14e7-2281-3fb1-6ff774ab8607",
+			"id": "0951254a-639f-c412-2df6-b59a5c2cca3e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/user?access_token=<access_token>",
+			"queryParams": [
+				{
+					"key": "access_token",
+					"value": "<access_token>",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1513962703155,
+			"name": "Create user",
+			"description": "",
+			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
+			"responses": [],
+			"rawModeData": "{\n    \"username\": \"a3\",\n    \"password\": \"p3\",\n    \"users_info\": {\n        \"firstName\": \"fAdmin1\",\n        \"lastName\": \"lAdmin1\"\n    }\n}"
+		},
+		{
+			"id": "1e763a27-8813-9878-384f-38cc3842aa71",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8090/user/<id>?access_token=<access_token>",
+			"queryParams": [
+				{
+					"key": "access_token",
+					"value": "<access_token>",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1513962670578,
+			"name": "User with id",
+			"description": "",
+			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
+			"responses": []
+		},
+		{
+			"id": "a1974d26-eb36-cc88-792e-ead1b8936f66",
 			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic Y2xpZW50LWlkOmNsaWVudC1zZWNyZXQ=\n",
 			"headerData": [
 				{
@@ -31,33 +100,32 @@
 			],
 			"url": "http://localhost:8090/oauth/token",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "a755b551-cf44-0b97-38a4-3c66fed1fde2",
 			"data": [],
 			"dataMode": "raw",
-			"name": "Access token admin",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1513913387130,
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "grant_type=password&username=admin&password=admin"
+			"time": 1513961824246,
+			"name": "Access token admin",
+			"description": "",
+			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
+			"responses": [],
+			"rawModeData": "grant_type=password&username=admin&password=pass"
 		},
 		{
-			"id": "48158855-8fac-52fb-9a11-e5a230b74d6f",
+			"id": "b0187307-206c-030d-c4ae-a391023bf07c",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8090/user/?access_token=f05ea79c5922d7d50a9a59affcc05a3124aa814d",
+			"url": "http://localhost:8090/user?access_token=<access_token>",
 			"queryParams": [
 				{
 					"key": "access_token",
-					"value": "f05ea79c5922d7d50a9a59affcc05a3124aa814d",
+					"value": "<access_token>",
 					"equals": true,
 					"description": "",
 					"enabled": true
@@ -72,10 +140,10 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1513914011845,
+			"time": 1513962677669,
 			"name": "Users with access_token",
 			"description": "",
-			"collectionId": "a755b551-cf44-0b97-38a4-3c66fed1fde2",
+			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
 			"responses": []
 		}
 	]

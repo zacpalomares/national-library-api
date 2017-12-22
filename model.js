@@ -1,6 +1,4 @@
-/**
- * Configuration.
- */
+var User = require('./models/User').User;
 
 var config = {
 	clients: [{
@@ -11,12 +9,7 @@ var config = {
 		clientId: 'confidentialApplication',
 		clientSecret: 'topSecret'
 	}],
-	tokens: [],
-	users: [{
-		id: '123',
-		username: 'admin',
-		password: 'admin'
-	}]
+	tokens: []
 };
 
 /**
@@ -24,7 +17,6 @@ var config = {
  */
 
 var dump = function() {
-
 	console.log('clients', config.clients);
 	console.log('confidentialClients', config.confidentialClients);
 	console.log('tokens', config.tokens);
@@ -99,12 +91,18 @@ var saveAccessToken = function(accessToken, clientId, expires, user, callback) {
 
 var getUser = function(username, password, callback) {
 
-	var users = config.users.filter(function(user) {
-
-		return user.username === username && user.password === password;
+	User.find({
+		where: {
+			username: username,
+			password: password}
+		}
+	).then(function(response){
+		if (response) {
+			callback(false, response.dataValues);
+		} else {
+			callback(false, null);
+		}
 	});
-
-	callback(false, users[0]);
 };
 
 /*

@@ -24,9 +24,9 @@ app.oauth = oauthserver({
 app.all('/oauth/token', app.oauth.grant());
 // OAuth2 config [End]
 
-app.use('/user*', app.oauth.authorise(), users);
-app.use('/book*', app.oauth.authorise(), books);
-app.use('/author*', app.oauth.authorise(), authors);
+app.use('/user', app.oauth.authorise(), users);
+app.use('/book', app.oauth.authorise(), books);
+app.use('/author', app.oauth.authorise(), authors);
 
 // Error handling as JSON
 app.use(function (err, req, res, next) {
