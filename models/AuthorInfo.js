@@ -1,13 +1,13 @@
 var db = require('../db');
 
-var UserInfo = db.sequelize.define('users_info', {
-  firstName: {
+var AuthorInfo = db.sequelize.define('users_info', {
+  authorName: {
     type: db.Sequelize.STRING,
-    field: 'first_name'
+    field: 'author_name'
   },
-  lastName: {
+  authorCountry: {
     type: db.Sequelize.STRING,
-    field: 'last_name'
+    field: 'author_country'
   }
 },
 {
@@ -16,5 +16,5 @@ var UserInfo = db.sequelize.define('users_info', {
 });
 
 module.exports = {
-  UserInfo: UserInfo
+  AuthorInfo: AuthorInfo
 };

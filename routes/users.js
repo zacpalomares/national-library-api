@@ -1,54 +1,36 @@
 var express = require('express');
 var router = express.Router();
-var User = require('.././models/User').User;
-var UserInfo = require('.././models/UserInfo').UserInfo;
+var UserService = require('.././services/UserService');
 
 // Get all users
-router.get('/', function(req, res, next) {
-	User.findAll({
-  	include: [
-			{ model: UserInfo, attributes: ['firstName', 'lastName'] }
-		]
-	}).then(function(users){
+router.get('/', function(req, res) {
+	UserService.getAllUsers().then(function(users){
 		res.json(users);
 	});
 });
 
 // Single user lookup
-router.get('/:id', function(req, res, next) {
-	User.find({
-		where: {
-    	id: req.params.id
-    },
-  	include: [
-			{ model: UserInfo, attributes: ['firstName', 'lastName'] }
-		]
-	}).then(function(users){
-		res.json(users);
+router.get('/:id', function(req, res) {
+	UserService.getUserById(req.params.id).then(function(user){
+		res.json(user);
 	});
 });
 
 // For saving new User
 router.post('/', function(req, res) {
 	var obj = req.body;
-
-	User.create({
-		username: obj.username,
-		password:	obj.password
-	}).then(function(response){
-		UserInfo.create({
-			firstName: obj.users_info.firstName,
-			lastName: obj.users_info.lastName,
-			user_id: response.dataValues.id
-		}).then(function(){
-			res.sendStatus(200);
-		});
+	UserService.saveUser(obj).then(function(response){
+		res.sendStatus(200);
 	})
 });
 
 // For updating User
-router.put('/:id', function(req, res) {
-	res.json(req.body);
+router.put('/', function(req, res) {
+	UserService.updateUser(req.body).then(function(data){
+		res.sendStatus(200);
+	}).catch(function(data){
+		res.status(500).send(data);
+	});
 });
 
 // For deleting User

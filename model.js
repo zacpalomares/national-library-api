@@ -20,7 +20,6 @@ var dump = function() {
 	console.log('clients', config.clients);
 	console.log('confidentialClients', config.confidentialClients);
 	console.log('tokens', config.tokens);
-	console.log('users', config.users);
 };
 
 /*

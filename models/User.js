@@ -1,5 +1,5 @@
 var db = require('../db');
-var UserInfo = require('./UserInfo').UserInfo;
+var AuthorInfo = require('./AuthorInfo').AuthorInfo;
 
 var User = db.sequelize.define('users', {
   username: {
@@ -10,10 +10,9 @@ var User = db.sequelize.define('users', {
     type: db.Sequelize.STRING,
     field: 'password'
   },
-  isSuperUser: {
-    type: db.Sequelize.BOOLEAN,
-    field: 'is_super_user',
-    default: false
+  role: {
+    type: db.Sequelize.STRING,
+    field: 'role'
   }
 },
 {
@@ -21,7 +20,7 @@ var User = db.sequelize.define('users', {
   timestamps: false
 });
 
-User.hasOne(UserInfo, { foreignKey: 'user_id' });
+User.hasOne(AuthorInfo, { foreignKey: 'user_id' });
 
 module.exports = {
 	User: User
