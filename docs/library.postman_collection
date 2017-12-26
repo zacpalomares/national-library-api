@@ -6,7 +6,9 @@
 		"a1974d26-eb36-cc88-792e-ead1b8936f66",
 		"b0187307-206c-030d-c4ae-a391023bf07c",
 		"1e763a27-8813-9878-384f-38cc3842aa71",
-		"0951254a-639f-c412-2df6-b59a5c2cca3e"
+		"0951254a-639f-c412-2df6-b59a5c2cca3e",
+		"316b5ca4-8eeb-b1e2-e7d4-a4d68ba4228a",
+		"d7b0d231-67f6-16b1-9179-c000dc81d13f"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -25,11 +27,11 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8090/user?access_token=<access_token>",
+			"url": "http://localhost:8090/user?access_token=b25443f81802ef3db877d6301806f3fc5d892555",
 			"queryParams": [
 				{
 					"key": "access_token",
-					"value": "<access_token>",
+					"value": "b25443f81802ef3db877d6301806f3fc5d892555",
 					"equals": true,
 					"description": "",
 					"enabled": true
@@ -44,12 +46,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1513962703155,
+			"time": 1514108468046,
 			"name": "Create user",
 			"description": "",
 			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
 			"responses": [],
-			"rawModeData": "{\n    \"username\": \"a3\",\n    \"password\": \"p3\",\n    \"users_info\": {\n        \"firstName\": \"fAdmin1\",\n        \"lastName\": \"lAdmin1\"\n    }\n}"
+			"rawModeData": "{\n    \"username\": \"zhac\",\n    \"password\": \"pass123\",\n    \"role\": \"AUTHOR\",\n    \"users_info\": {\n        \"author_name\": \"Isaac Daniel\",\n        \"author_country\": \"PH\"\n    }\n}"
 		},
 		{
 			"id": "1e763a27-8813-9878-384f-38cc3842aa71",
@@ -82,6 +84,44 @@
 			"responses": []
 		},
 		{
+			"id": "316b5ca4-8eeb-b1e2-e7d4-a4d68ba4228a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/book?access_token=<access_token>",
+			"queryParams": [
+				{
+					"key": "access_token",
+					"value": "<access_token>",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1514303311475,
+			"name": "Create book with co-authors",
+			"description": "",
+			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
+			"responses": [],
+			"rawModeData": "{\n\t\"book_name\": \"Harry Potter\",\n\t\"book_edition\": \"1st\",\n\t\"main_author_id\": 2,\n\t\"co_authors\": [1,3]\n}"
+		},
+		{
 			"id": "a1974d26-eb36-cc88-792e-ead1b8936f66",
 			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic Y2xpZW50LWlkOmNsaWVudC1zZWNyZXQ=\n",
 			"headerData": [
@@ -110,18 +150,47 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1513961824246,
+			"time": 1514108469607,
 			"name": "Access token admin",
 			"description": "",
 			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
 			"responses": [],
-			"rawModeData": "grant_type=password&username=admin&password=pass"
+			"rawModeData": "grant_type=password&username=author&password=pass"
 		},
 		{
 			"id": "b0187307-206c-030d-c4ae-a391023bf07c",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8090/user?access_token=<access_token>",
+			"url": "http://localhost:8090/user?access_token=b25443f81802ef3db877d6301806f3fc5d892555",
+			"queryParams": [
+				{
+					"key": "access_token",
+					"value": "b25443f81802ef3db877d6301806f3fc5d892555",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1514108465535,
+			"name": "Users with access_token",
+			"description": "",
+			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
+			"responses": []
+		},
+		{
+			"id": "d7b0d231-67f6-16b1-9179-c000dc81d13f",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8090/book?access_token=<access_token>",
 			"queryParams": [
 				{
 					"key": "access_token",
@@ -140,8 +209,8 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1513962677669,
-			"name": "Users with access_token",
+			"time": 1514303324443,
+			"name": "Books with access_token",
 			"description": "",
 			"collectionId": "7b6f0ef2-abe4-86d4-ef55-04bda73a53cb",
 			"responses": []
