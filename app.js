@@ -1,3 +1,5 @@
+var config = require('./config').WebConfig;
+
 var express = require('express'),
 		bodyParser = require('body-parser'),
 		http = require('http'),
@@ -6,7 +8,8 @@ var express = require('express'),
 // routes
 var users = require('./routes/users'),
 		books = require('./routes/books'),
-		authors = require('./routes/authors');
+		authors = require('./routes/authors'),
+		registration = require('./routes/registration');
 
 app = express();
 var server = http.createServer(app);
@@ -27,13 +30,14 @@ app.all('/oauth/token', app.oauth.grant());
 app.use('/user', app.oauth.authorise(), users);
 app.use('/book', app.oauth.authorise(), books);
 app.use('/author', app.oauth.authorise(), authors);
+app.use('/register', app.oauth.authorise(), registration);
 
 // Error handling as JSON
-app.use(function (err, req, res, next) {
+app.use('/*', function (err, req, res, next) {
     res.status(err.statusCode || 500).json(err);
 });
 
 // Set app port listener
-server.listen(8090, function(err){
-		console.log('Server is running on 8090');
+server.listen(config.port, function(err){
+		console.log('Server is running on ' + config.port);
 });
