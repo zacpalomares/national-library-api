@@ -42,4 +42,6 @@ node app.js
 
 Execute insert sciprts [insert-script.sql]() into your DB to have pre-define users such as ADMIN/AUTHOR
 
+You can use Postman to test the API and sample collections is in [docs/]() directory.
+
 
