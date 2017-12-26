@@ -34,14 +34,14 @@ Go to the project directory (/national-library-api) and install everything
 npm install
 ```
 
-Web and DB credentials are in [config.js]() and run the project:
+Web and DB credentials are in [config.js](https://github.com/zacpalomares/national-library-api/blob/master/config.js) and run the project:
 
 ```
 node app.js
 ```
 
-Execute insert sciprts [insert-script.sql]() into your DB to have pre-define users such as ADMIN/AUTHOR
+Execute insert sciprts [insert-script.sql](https://github.com/zacpalomares/national-library-api/blob/master/docs/insert_script.sql) into your DB to have pre-define users such as ADMIN/AUTHOR
 
-You can use Postman to test the API and sample collections is in [docs/]() directory.
+You can use Postman to test the API and sample collections is in [docs/](https://github.com/zacpalomares/national-library-api/tree/master/docs) directory.
 
 
